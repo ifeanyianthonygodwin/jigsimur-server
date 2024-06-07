@@ -31,15 +31,17 @@ const https = require('https');
 //     }
 // })
 
-router.get("/acceptpayment/", async(req, res) => {
+router.get("/api/acceptpayment/", async(req, res) => {
     try {
       // request body from the clients
-      const email = "feco@gmail.com";
-      const amount = "3000";
+      // const email = "feco@gmail.com";
+      // const amount = "3000";
       // params
       const params = JSON.stringify({
-        "email": email,
-        "amount": amount * 100
+        // "email": email,
+        // "amount": amount * 100
+        "amount": req.query.amount,
+        "email": req.query.email
       })
       // options
       const options = {
@@ -48,7 +50,7 @@ router.get("/acceptpayment/", async(req, res) => {
         path: '/transaction/initialize',
         method: 'POST',
         headers: {
-          Authorization: "Bearer sk_test_b40530b8a9806975cdf2ccbc78ada7079d0484fa", // where you place your secret key copied from your dashboard
+          Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`, // where you place your secret key copied from your dashboard
           'Content-Type': 'application/json'
         }
       }

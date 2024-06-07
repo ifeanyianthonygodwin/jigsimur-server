@@ -7,11 +7,12 @@ router.post('/api/send-email', async (req, res) => {
     lastName,
     email,
     phone,
-    Account_Name,
+    Name_on_Bank_Account,
     Bank_Name,
     Account_Number} = req.body
     // res.json(req.body)
     // console.log(req.body);
+    
 
     // create an SMTP transporter
 
@@ -35,7 +36,7 @@ router.post('/api/send-email', async (req, res) => {
         },
         to: "ewotap@gmail.com",
         subject: "NEW JIGSIMUR DISTRIBUTOR",
-        text: `username: ${username}\nfirstName: ${firstName}\nlastName: ${lastName}\nEmail: ${email}\nPhone_Number: ${phone}\nAccount_Name: ${Account_Name}\nBank_Name: ${Bank_Name}\nAccount_Number: ${Account_Number}\n`,
+        text: `username: ${username}\nfirstName: ${firstName}\nlastName: ${lastName}\nEmail: ${email}\nPhone_Number: ${phone}\nName_on_Bank_Account: ${Name_on_Bank_Account}\nAccount_Name: ${Bank_Name}\nAccount_Number: ${Account_Number}\n`,
     }
 
     const sendMail = async () => {
