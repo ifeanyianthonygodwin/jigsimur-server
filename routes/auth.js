@@ -22,6 +22,8 @@ router.post("/register", async (req, res) => {
   }
 });
 
+// this is an old file
+
 //LOGIN
 
 router.post("/login", async (req, res) => {
