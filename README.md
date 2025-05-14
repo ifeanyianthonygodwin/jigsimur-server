@@ -1,2 +1,0 @@
-# jigsimur-server
- 
